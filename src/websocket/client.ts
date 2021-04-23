@@ -21,7 +21,7 @@ io.on("connect", (socket) => {
     
     const userExists = await usersService.findByEmail(email);
 
-    if(!usersService) {
+    if(!userExists) {
       const user = await usersService.create(email);
 
       await connectionsService.create({
